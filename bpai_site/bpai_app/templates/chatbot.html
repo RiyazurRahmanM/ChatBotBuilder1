@@ -35,7 +35,7 @@
 </head>
 <body>
     <div class="chatbot-container">
-        {% for message in messages %}
+        {% for message in messages|slice:"1:" %}
             <div class="request">
                 {{message.input_message}}
             </div>

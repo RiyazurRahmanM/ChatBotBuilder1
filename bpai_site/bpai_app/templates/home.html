@@ -3,11 +3,73 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body{
+            background-color: black;
+        }
+        .container{
+            position: relative;
+            left:30%;
+            top:30%;
+            width: 40%;
+            height: 40%;
+            background-color: rgb(46, 46, 46);
+            color:white;
+        }
+        .code{
+            background-color: rgb(173, 173, 173);
+            color:black;
+            overflow-x:scroll;
+        }
+    </style>
 </head>
 <body>
-    <p>Chat Bot Created successfully Here is the link of your chat bot add it in your website:</p>
-    {% if cname %}
-        <a href="http://52.66.203.226:8000/chatbot/?cname={{cname}}"><p>http://52.66.203.226:8000/chatbot/?cname={{cname}}</p></a>
-    {% endif %}
+    <div class="container">
+        <p>Chat Bot Created successfully,  
+            Add this code in your website
+        </p>
+
+        <div class="code">
+            {% if cname %}
+            <div id="chatbot-container">
+                <div id="chatbot-bubble" style="position: fixed; bottom: 20px; right: 20px; background-color: #ff7f50; color: #fff; padding: 10px; border-radius: 50%; cursor: pointer;">
+                  <span style="display: inline-block; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 50%; background-color: #fff; color: #ff7f50;">Bot</span>
+                </div>
+                <div id="chatbot-expanded" style="position: fixed; bottom: 20px; right: 70px; width: 400px; height: 500px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); display: none;">
+                  <iframe src="http://52.66.203.226:8000/chatbot/?cname={{cname}}" style="width: 100%; height: 100%; border: none;"></iframe>
+                </div>
+              </div>
+              
+              <script>
+                var chatbotBubble = document.getElementById('chatbot-bubble');
+                var chatbotExpanded = document.getElementById('chatbot-expanded');
+              
+                chatbotBubble.addEventListener('click', function() {
+                  chatbotExpanded.style.display = (chatbotExpanded.style.display === 'none') ? 'block' : 'none';
+                });
+              </script>
+              <pre>
+                &lt;div id="chatbot-container"&gt;
+                  &lt;div id="chatbot-bubble" style="position: fixed; bottom: 20px; right: 20px; background-color: #ff7f50; color: #fff; padding: 10px; border-radius: 50%; cursor: pointer;"&gt;
+                    &lt;span style="display: inline-block; width: 30px; height: 30px; line-height: 30px; text-align: center; border-radius: 50%; background-color: #fff; color: #ff7f50;"&gt;Bot&lt;/span&gt;
+                  &lt;/div&gt;
+                  &lt;div id="chatbot-expanded" style="position: fixed; bottom: 20px; right: 70px; width: 400px; height: 500px; background-color: #fff; border-radius: 5px; box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); display: none;"&gt;
+                    &lt;iframe src="http://52.66.203.226:8000/chatbot/?cname={{cname}}" style="width: 100%; height: 100%; border: none;"&gt;&lt;/iframe&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;script&gt;
+                  var chatbotBubble = document.getElementById('chatbot-bubble');
+                  var chatbotExpanded = document.getElementById('chatbot-expanded');
+            
+                  chatbotBubble.addEventListener('click', function() {
+                    chatbotExpanded.style.display = (chatbotExpanded.style.display === 'none') ? 'block' : 'none';
+                  });
+                &lt;/script&gt;
+              </pre>                      
+               
+            {% endif %}
+        </div>
+    </div>
 </body>
 </html>

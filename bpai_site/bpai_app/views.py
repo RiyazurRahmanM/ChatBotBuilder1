@@ -9,7 +9,7 @@ from django.urls import reverse
 
 load_dotenv()
 
-openai_api_key = os.getenv('OPENAI_KEY',None)
+openai_api_key = "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"
 openai.api_key = openai_api_key
 
 def chatbot_view(request):
@@ -108,16 +108,15 @@ def myform_view(request):
         request.session['imess'] = request.POST.get('imess')
         request.session['nomess'] = request.POST.get('nomess')
         niche = request.POST.get('niche')
-        niche += " If the user is asking irrelevent questions that are not relate to the niche of chatbot reply"
+        dfeed = request.POST.get('dfeed')
+        niche += "Additional Data related to niche: =>"
+        niche += dfeed
+        niche += " If the user is asking irrelevent questions that are not relate to the niche of chatbot. you just have to reply => "
         nomess = request.POST.get('nomess')
         niche += nomess
         request.session['niche'] =  niche 
-        request.session['dfeed'] = request.POST.get('dfeed')
-        
-        return HttpResponseRedirect(reverse('home_view'))
+        return HttpResponseRedirect(reverse('dfeed_view'))
     return render(request, 'myform.html')
 
-
-    
 
 
