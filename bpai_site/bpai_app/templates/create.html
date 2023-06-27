@@ -1,0 +1,60 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin:0%;
+        }
+        .container{
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom right, blue, white,white, white,white,blue)
+        }
+        .heading{
+            position: absolute;
+            top: 40%;
+            left: 30%;
+            font-size: 50px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .the_button{
+            position: absolute;
+            top: 60%;
+            left: 40%;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: blue;
+            color: white;
+            Padding: 5px 5px 5px 5px;
+            border-radius: 10px;
+        }
+        .the_button:hover{
+            position: absolute;
+            top: 60%;
+            left: 40%;
+            font-size: 20px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            background-color: blue;
+            color: white;
+            Padding: 5px 5px 5px 5px;
+            border-radius: 10px;
+            box-shadow: 5px 5px 5px black;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="heading">Custom ChatGPT for<br> your data</h1>
+        <button class="the_button" onclick="home_view()">Build your ChatBot</button>
+    </div>
+</body>
+<script>
+    function home_view(){
+        window.location.href="/myform/"
+    }
+</script>
+</html>

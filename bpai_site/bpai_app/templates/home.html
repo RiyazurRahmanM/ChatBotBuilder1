@@ -1,0 +1,13 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>Chat Bot Created successfully Here is the link of your chat bot add it in your website:</p>
+    {% if cname %}
+        <a href="http://127.0.0.1:8000/chatbot/?cname={{cname}}"><p>http://127.0.0.1:8000/chatbot/?cname={{cname}}</p></a>
+    {% endif %}
+</body>
+</html>

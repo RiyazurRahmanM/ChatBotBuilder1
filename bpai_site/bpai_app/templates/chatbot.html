@@ -1,0 +1,53 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chatbot</title>
+    <style>
+        .chatbot-container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .request {
+            background-color: #f1f0f0;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .response {
+            background-color: #daf6e8;
+            padding: 10px;
+            margin-bottom: 10px;
+        }
+        
+        form {
+            margin-top: 20px;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <div class="chatbot-container">
+        {% for message in messages %}
+            <div class="request">
+                {{message.input_message}}
+            </div>
+            <div class="response">
+                {{message.output_message}}
+            </div>
+        {% endfor %}
+    </div>
+
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" placeholder="Enter your message" name="user_prompt">
+    </form>
+</body>
+</html>

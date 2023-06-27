@@ -1,0 +1,70 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+        <style>
+            body{
+                background-color: rgb(220, 207, 207);
+            }
+            .form-container{
+                position: relative;
+                left:30%;
+            }
+            .label-class{
+                padding-top: 2%;
+                background-color: rgb(55, 50, 50);
+                width: 40%;
+                height: 60px;
+                text-align: center;
+                color:white;
+                font-size: larger;
+            }
+            input[type="text"]{
+                width: 40%;
+                height: 60px;
+            }
+
+            input[type="submit"]{
+                position: relative;
+                left:15%;
+                background-color: rgb(55, 50, 50);
+                width: 100px;
+                color:white;
+            }
+
+            .input-radio{
+                position:relative;
+                left:15%;
+            }
+        </style>
+        
+          
+</head>
+<body>
+    <div class="container">
+        <form class="my-form" method="POST">
+            {% csrf_token %}
+            <div class="form-container">
+
+                <div class="label-class">Chatbot Name:</div>
+                <input name="cname" type="text" class="input-box" placeholder="Chatbot Name"><br><br><br>
+                <div class="label-class">Initial Message:</div>
+                <input name="imess" type="text" class="input-box" placeholder="Initial Message"><br><br><br>
+                <div class="label-class">Message for Out of Niche Questions:</div>
+                <input name="nomess" type="text" class="input-box" placeholder="Message for Out of Niche Questions:"><br><br><br>
+                <div class="label-class">Niche of Chatbot:</div>
+                <input name="niche" type="text" class="input-box" placeholder="Niche of Chatbot:"><br><br><br>
+                <div class="label-class">Feed Data to Chatbot:</div>
+                <div class="input-radio">
+                    <input type="radio" value="yes" name="dfeed">Yes<br>
+                    <br>
+                    <input type="radio" value="no" name="dfeed">No<br>
+                </div><br><br>
+                <input type="submit" value="Next">
+            </div>
+        </form>
+        
+    </div>
+</body>
+</html>
