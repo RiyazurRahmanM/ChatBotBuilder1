@@ -18,7 +18,7 @@
 }
 
 .main{
-    position :absolute;
+    position :relative;
     top:0%;
     right:0%;
     background-color: #444654;
@@ -38,7 +38,7 @@
 }
 
 .response{
-    position :absolute;
+    position :relative;
     background-color:#3a3441;
     top:0%;
     width:100%;
