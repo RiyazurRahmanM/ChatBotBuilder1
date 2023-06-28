@@ -6,12 +6,15 @@ from django.db import models
 from .models import Messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from django.http import HttpResponse
+from django.views.decorators.clickjacking import xframe_options_exempt
 
 load_dotenv()
 
 openai_api_key = "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"
 openai.api_key = openai_api_key
 
+@xframe_options_exempt
 def chatbot_view(request):
     messages = Messages.objects.filter(chatbot_name=request.GET.get('cname'))
     loop=1

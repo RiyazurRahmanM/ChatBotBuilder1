@@ -35,13 +35,20 @@
 </head>
 <body>
     <div class="chatbot-container">
+        {% if initial_message %}
+                {{initial_message}}
+        {% endif %}
         {% for message in messages|slice:"1:" %}
+        {% if message.input_message != "NULL" %}
             <div class="request">
                 {{message.input_message}}
             </div>
+        {% endif %}
+        {% if message.input_message != "NULL" %}
             <div class="response">
                 {{message.output_message}}
             </div>
+        {% endif %}
         {% endfor %}
     </div>
 
