@@ -11,7 +11,7 @@ from django.views.decorators.clickjacking import xframe_options_exempt
 
 load_dotenv()
 
-openai_api_key = "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"
+openai_api_key = "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"
 openai.api_key = openai_api_key
 
 @xframe_options_exempt
@@ -84,7 +84,7 @@ def chatbot_view(request):
         message = Messages(chatbot_name=request.GET.get('cname'), initial_message=f"{initial_message}", system_message=f"{system_message}", input_message=f"{user_prompt}",output_message=response["choices"][0]["message"]["content"])
         message.save()
         messages = Messages.objects.filter(chatbot_name=request.GET.get('cname'))
-        return render(request,'chatbot.html',{'messages':messages})
+        return render(request,'chatbot.html',{'messages':messages,'initial_message':initial_message})
     
 
     return render(request,'chatbot.html',{'messages':messages})
@@ -118,7 +118,7 @@ def myform_view(request):
         nomess = request.POST.get('nomess')
         niche += nomess
         request.session['niche'] =  niche 
-        return HttpResponseRedirect(reverse('dfeed_view'))
+        return HttpResponseRedirect(reverse('home_view'))
     return render(request, 'myform.html')
 
 
